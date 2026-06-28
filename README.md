@@ -1,11 +1,11 @@
+# yasbd-xx 
+
 [![Python Version](https://img.shields.io/badge/Python-3.11%20--%203.14-blue)](https://www.python.org/downloads/)
 [![PyPI](https://img.shields.io/pypi/v/yasbd-xx?kill_cache=1)](https://pypi.org/project/yasbd-xx)
 [![Tests](https://img.shields.io/github/actions/workflow/status/speedyk-005/yasbd-xx/build-and-test.yml?branch=main&label=tests)](https://github.com/speedyk-005/yasbd-xx/actions)
 [![Stability](https://img.shields.io/badge/stability-alpha-red)](https://github.com/speedyk-005/yasbd-xx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-
-# yasbd-xx
 
 **sentence splitting for when you have no idea what language that is.**
 
