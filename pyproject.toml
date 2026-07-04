@@ -1,6 +1,6 @@
 [project]
 name = "yasbd-xx"
-version = "0.1.0"
+version = "0.1.1"
 description = "Experimental multilingual aggregate for yasbd-lib — best-effort sentence splitting over all installed language profiles."
 authors = [
   { name = "speedyk_005", email = "speedy40115719@gmail.com" }
