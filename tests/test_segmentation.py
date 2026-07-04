@@ -17,7 +17,6 @@ TEST_DATA = [
     "我喜欢AI。|It is useful",
     "Ｕ．Ｓ．Ａ．的经济政策非常复杂。|下个月的动向值得关注。",
     "那个会议在下午两点。|Please don't be late!",
-
     # Abbreviations
     "Prof. Smith und Dr. Schmidt arbeiten zusammen.| Das Projekt ist groß.",
     "डॉ. सिंह और प्रो. वर्मा ने व्याख्यान दिया।| उन्होंने भौतिकी पढ़ाई।",
@@ -29,13 +28,11 @@ TEST_DATA = [
     "She lived in the U.S.A. for 20 years.| Now she lives in the E.U.",
     "ዶ/ር ኃይሉ በሆስፒታሉ ውስጥ ናቸው።| ነገ ይመረመራሉ።",
     "Das ist z. B. ein Beispiel.| Es funktioniert gut.",
-
     # Quoted speech
     "Er sagte: 'Ich bin müde.'| Dann ging er nach Hause.",
-    '„Das ist großartig!“ rief sie.',
+    "„Das ist großartig!“ rief sie.",
     "Léa dit : « Bonjour ! Je suis Léa. Et toi ? »",
-    'Elle s\'est tournée vers lui, "C\'est magnifique." dit-elle.',
-
+    "Elle s'est tournée vers lui, \"C'est magnifique.\" dit-elle.",
     # Ellipsis
     "Die Ergebnisse waren nicht eindeutig....| Wir haben es wiederholt.",
     "Het project was bijna afgerond... of dat dachten we tenminste.",
