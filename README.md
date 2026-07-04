@@ -1,91 +1,118 @@
-# yasbd-xx 
+# yasbd-union
 
 [![Python Version](https://img.shields.io/badge/Python-3.11%20--%203.14-blue)](https://www.python.org/downloads/)
-[![PyPI](https://img.shields.io/pypi/v/yasbd-xx?kill_cache=1)](https://pypi.org/project/yasbd-xx)
-[![Tests](https://img.shields.io/github/actions/workflow/status/speedyk-005/yasbd-xx/build-and-test.yml?branch=main&label=tests)](https://github.com/speedyk-005/yasbd-xx/actions)
-[![Stability](https://img.shields.io/badge/stability-alpha-red)](https://github.com/speedyk-005/yasbd-xx)
+[![PyPI](https://img.shields.io/pypi/v/yasbd-union?kill_cache=1)](https://pypi.org/project/yasbd-union)
+[![Tests](https://img.shields.io/github/actions/workflow/status/speedyk-005/yasbd-union/build-and-test.yml?branch=main&label=tests)](https://github.com/speedyk-005/yasbd-union/actions)
+[![Stability](https://img.shields.io/badge/stability-alpha-red)](https://github.com/speedyk-005/yasbd-union)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-**sentence splitting for when you have no idea what language that is.**
+**Sentence splitting for when you genuinely have no idea what language you're looking at.**
 
-An experimental lang pack for [yasbd-lib](https://github.com/speedyk-005/yasbd) that
-merges every known abbreviation set into one chaotic union. Sometimes it works.
-Sometimes it doesn't. That's the deal.
+---
+
+## What this is
+
+`yasbd-union` is an experimental add-on for [yasbd-lib](https://github.com/speedyk-005/yasbd).
+
+It takes sentence-splitting rules from every installed language pack and throws them into one shared space.
+
+Sometimes it behaves nicely.
+Sometimes it makes bold assumptions.
+Sometimes it surprises even you.
+
+That's basically the whole deal.
 
 ---
 
 ## `auto` vs `xx`
 
-**`auto`** is a concierge. It sniffs the first paragraph, decides whether you're
-writing in French or Swahili, and dispatches to the precise rules for that language.
-It's clean. It's correct. It knows what it's doing.
+**`auto`** tries to be smart about it.
 
-**`xx`** is a Swiss Army knife that lost the corkscrew. It takes every abbreviation,
-every sentence starter, every discourse particle from every installed language, throws
-them into a blender, and hopes the result works on your mixed-language train wreck.
+It looks at your text, decides what language it is, and uses the right rules for the job. Clean and structured.
 
-|                    | `auto`               | `xx`                      |
-|--------------------|----------------------|---------------------------|
-| Detects language   | ✅ yes               | ❌ nope                   |
-| Correct per lang   | ✅ almost always     | 🎲 depends on the phase of the moon |
-| Handles mixed text | ❌ no (detects once) | ✅ yes (everything at once) |
-| False splits       | rarely               | regularly (German `Es` leaks into Spanish — ask us how) |
-| Best for           | clean, single-lang   | messy, mixed, "I'll fix it later" |
+**`xx`** doesn't bother with that step.
 
-`xx` is not a language. It's a probabilistic overlay of your entire language ecosystem.
-Use it when you need to get the job done and don't mind if a few sentences get
-beheaded along the way.
+It assumes your text is already a mix of everything and just applies all available rules at once.
+
+|                    | `auto`              | `xx`                                   |
+|--------------------|---------------------|----------------------------------------|
+| Language handling  | Detects first       | Doesn't care                           |
+| Accuracy           | Stable              | Depends on what rules are installed     |
+| Mixed text         | Not ideal           | Basically its natural habitat          |
+| False splits       | Rare                | Happens sometimes                      |
+| Personality        | Careful             | A bit chaotic, but trying its best     |
+| Best for           | Clean text          | Mixed-language messes     |
 
 ---
 
-## Installation
+## Install
 
 ```bash
-pip install yasbd-xx
+pip install yasbd-union
 ```
 
-## Usage
+Then register it:
 
 ```python
-from yasbd import BoundaryDetector
 from yasbd.rules import register_lang_packs
+from yasbd import BoundaryDetector
 
-register_lang_packs(["yasbd_xx"])
+register_lang_packs(["yasbd_union"])
 
 detector = BoundaryDetector("xx")
+```
+
+---
+
+Example
+```python
 sentences = list(detector.segment(
     "Dr. Wang said 你好世界。Prof. Li replied 是的。"
 ))
-# ["Dr. Wang said 你好世界。", "Prof. Li replied 是的。"]
+
+print(sentences)
+```
+Output:
+```bash
+["Dr. Wang said 你好世界。", "Prof. Li replied 是的。"]
 ```
 
-Will it always work? No.
-Will you survive? Probably.
+---
+
+## When to use xx
+
+Use it when:
+
+- You don't know what language your text is in
+- Your input is messy, mixed, or unpredictable
+- You're dealing with logs, chats, or scraped text
+- You just want something that "tries its best"
 
 ---
 
-## When NOT to use xx
+## When not to use xx
 
-- You need production-grade accuracy
-- Your text is clean single-language
-- You don't want to explain to your boss why "Ud. Es" got split in half
+Avoid it when:
 
-In those cases, use the language-specific code or `auto`.
+- You need strict, repeatable results
+- Your text is single-language
+- You don't want surprises in sentence boundaries
+- You're trying to explain results to someone very literal
+
+In those cases, auto or a specific language pack will behave better.
 
 ---
 
-## Caveat emptor
+## A few honest notes
 
-- False splits guaranteed. The more languages installed, the more creative they get.
-- Cross-contamination is a feature, not a bug. German starters will leak into
-  Spanish, Thai particles into French, your mileage will vary.
-- Not deterministic across environments — depends on what lang packs you have installed.
+- Some sentence splits will be slightly unexpected
+- Results can change depending on installed language packs
+- It is not fully predictable by design
 
-You have been warned. Proceed anyway.
+If that sounds like a problem, xx is probably not what you want.
 
 ---
 
 ## License
 
-MIT. You break it, you buy it. (You won't buy it. But you were warned.)
+**MIT:** If it breaks, it's still yours.
