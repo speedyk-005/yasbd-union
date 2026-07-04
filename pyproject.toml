@@ -1,6 +1,6 @@
 [project]
-name = "yasbd-xx"
-version = "0.1.1"
+name = "yasbd-union"
+version = "0.1.2"
 description = "Experimental multilingual aggregate for yasbd-lib — best-effort sentence splitting over all installed language profiles."
 authors = [
   { name = "speedyk_005", email = "speedy40115719@gmail.com" }
@@ -40,9 +40,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/speedyk-005/yasbd-xx"
-Repository = "https://github.com/speedyk-005/yasbd-xx"
-Issues = "https://github.com/speedyk-005/yasbd-xx/issues"
+Homepage = "https://github.com/speedyk-005/yasbd-union"
+Repository = "https://github.com/speedyk-005/yasbd-union"
+Issues = "https://github.com/speedyk-005/yasbd-union/issues"
 
 [build-system]
 requires = [
@@ -53,12 +53,12 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = [
-    "yasbd_xx",
+    "yasbd_union",
 ]
 
 [tool.pytest.ini_options]
 minversion = "7.4"
-addopts = "--cov=yasbd_xx --cov-report=term-missing:skip-covered --durations=5"
+addopts = "--cov=yasbd_union --cov-report=term-missing:skip-covered --durations=5"
 testpaths = ["tests"]
 python_files = "test_*.py"
 

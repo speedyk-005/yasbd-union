@@ -3,7 +3,7 @@ import pytest
 from yasbd import BoundaryDetector, register_lang_packs
 
 # Register self
-register_lang_packs(["yasbd_xx"])
+register_lang_packs(["yasbd_union"])
 
 
 TEST_DATA = [
