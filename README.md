@@ -1,7 +1,7 @@
 # yasbd-union
 
 [![Python Version](https://img.shields.io/badge/Python-3.11%20--%203.14-blue)](https://www.python.org/downloads/)
-[![PyPI](https://img.shields.io/pypi/v/yasbd-union?kill_cache=1)](https://pypi.org/project/yasbd-union)
+[![PyPI](https://img.shields.io/pypi/v/yasbd-union?kill_cache=2)](https://pypi.org/project/yasbd-union)
 [![Tests](https://img.shields.io/github/actions/workflow/status/speedyk-005/yasbd-union/build-and-test.yml?branch=main&label=tests)](https://github.com/speedyk-005/yasbd-union/actions)
 [![Stability](https://img.shields.io/badge/stability-alpha-red)](https://github.com/speedyk-005/yasbd-union)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
