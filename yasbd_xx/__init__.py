@@ -5,7 +5,7 @@ from itertools import chain
 import regex as re
 
 from yasbd.rules import _LANG_PACK_REGISTRY, get_supported_langs
-from yasbd.rules.base import Rules, _build_abbr_pattern
+from yasbd.rules.base import Rules, build_abbr_pattern
 
 # fmt: off
 _RULE_SET_NAMES = {
@@ -87,7 +87,7 @@ class XxRules(Rules):
                     rf"""
                         (?:\d\.|(?:(?<=\d)|\b)(?i:[ap]\.m\.))
                         (?=
-                            \s+(?i:{_build_abbr_pattern(cls.DATE_ABBRVS | cls.DATE_WORDS)})
+                            \s+(?i:{build_abbr_pattern(cls.DATE_ABBRVS | cls.DATE_WORDS)})
                             (?:\.|\s|$)
                         )
                     """, re.X,
@@ -97,7 +97,7 @@ class XxRules(Rules):
                 re.compile(
                     rf"""
                         \b(?i:{cls.DOTTED_GEOPOL_ABBRVS_PATTERN})\.
-                        (?=\s+(?:{_build_abbr_pattern(cls.ORG_PROPER_NOUNS)}))
+                        (?=\s+(?:{build_abbr_pattern(cls.ORG_PROPER_NOUNS)}))
                     """, re.X,
                 ),
 
@@ -109,7 +109,7 @@ class XxRules(Rules):
                     rf"""
                         (?:(?<=\d)|\b)(?i:[ap]\.m\.)
                         (?=
-                            \s+(?i:{_build_abbr_pattern(cls.DATE_ABBRVS | cls.DATE_WORDS)})
+                            \s+(?i:{build_abbr_pattern(cls.DATE_ABBRVS | cls.DATE_WORDS)})
                             (?:\.|\s|$)
                      )
                      """, re.X,
@@ -118,7 +118,7 @@ class XxRules(Rules):
                 # Ud./Vd. pronoun abbreviation not followed by a proper name
                 re.compile(
                     rf"""
-                        \b(?i:{_build_abbr_pattern({"ud", "uds", "vd", "vds"})})\.
+                        \b(?i:{build_abbr_pattern({"ud", "uds", "vd", "vds"})})\.
                         (?!\s+(?:{cls.COMMON_STARTERS_PATTERN})\b)
                     """, re.X,
                 ),
@@ -128,14 +128,14 @@ class XxRules(Rules):
         # Street abbrv followed by a common starters
         cls.ENDING_STREET_ABBRVS_FINDER = re.compile(
             rf"""
-            (?:\b(?i:{_build_abbr_pattern(cls.STREET_ABBRVS)})\.)
+            (?:\b(?i:{build_abbr_pattern(cls.STREET_ABBRVS)})\.)
             (?=\s+(?:{cls.COMMON_STARTERS_PATTERN})\b)
            """, re.X,
         )
 
         # Discourse final particles that should not end a sentence (Thai, Burmese, etc.)
         cls.FINAL_PARTICLES_FINDER = re.compile(
-            rf"{_build_abbr_pattern(cls.DISCOURSE_FINAL_PARTICLES)}(?![\s]*[.?!;:๚๛])"
+            rf"{build_abbr_pattern(cls.DISCOURSE_FINAL_PARTICLES)}(?![\s]*[.?!;:๚๛])"
         )
 
     # fmt: on
